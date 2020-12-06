@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Tarea_Arbol {
 
-     static Scanner lea = new Scanner(System.in);
+    static Scanner lea = new Scanner(System.in);
     public static void main(String[] args) {
         Main();
     }
     public static void Main(){
+        Btree arbol = null;
         
         char opcion_MenuPrincipal = '0' ;
         while(opcion_MenuPrincipal != 6){
@@ -31,7 +32,11 @@ public class Tarea_Arbol {
                     break;
                 case '4':
                     break;
-                case '5':
+                case '5':{
+                    System.out.println("Ingrese el Elemento que desea Buscar:");
+                    int numBuscar = lea.nextInt();
+                    
+                }
                     break;
                 case '6':
                     System.out.println("Adios");
