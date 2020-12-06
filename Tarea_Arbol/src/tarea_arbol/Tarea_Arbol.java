@@ -33,9 +33,10 @@ public class Tarea_Arbol {
                 case '4':
                     break;
                 case '5':{
-                    System.out.println("Ingrese el Elemento que desea Buscar:");
+                    System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
-                    
+                    int buscado = arbol.search(arbol.root, numBuscar);
+                    System.out.println("Enocntrado en: " + buscado);
                 }
                     break;
                 case '6':
