@@ -1,4 +1,4 @@
-package edd2_proyecto_;
+package tarea_arbol;
 
 import java.io.Serializable;
 
