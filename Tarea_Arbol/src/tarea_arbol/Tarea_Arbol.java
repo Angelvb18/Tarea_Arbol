@@ -1,6 +1,9 @@
 
 package tarea_arbol;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Tarea_Arbol {
@@ -11,6 +14,8 @@ public class Tarea_Arbol {
     }
     public static void Main(){
         Btree arbol = new Btree(5);
+        File archivo = new File("arbol.pb");
+        boolean cargado = false;
         
         char opcion_MenuPrincipal = '0' ;
         while(opcion_MenuPrincipal != '6'){
@@ -23,11 +28,31 @@ public class Tarea_Arbol {
                     + "Ingrese una opcion:");
             opcion_MenuPrincipal = lea.next().charAt(0);
             switch (opcion_MenuPrincipal) {
-                case '1':
+                case '1':{
+                    if(cargado){
+                        System.out.println("Ya hay un Árbol en Ejecución");
+                    }
+                        
+                }
                     
                     break;
                 case '2':{
-                    
+                    FileOutputStream fw = null;
+                    ObjectOutputStream bw = null;
+                    try {
+                        fw = new FileOutputStream(archivo);
+                        bw = new ObjectOutputStream(fw);
+                        
+                        bw.writeObject(arbol);
+                        bw.flush();
+                    } catch (Exception e) {
+                    } finally {
+                        try {
+                            bw.close();
+                            fw.close();
+                        } catch (Exception e) {
+                        }
+                    }
                 }
                     break;
                 case '3':
