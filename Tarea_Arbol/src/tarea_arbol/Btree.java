@@ -217,11 +217,11 @@ public class Btree implements Serializable {
         
     }
     
-    public void insert(int key,int RRN){
+    public void insert(int key){
         if (root==null) {
             root=new Bnode(t,true);
             //root.getKeys()[root.getN()]=key;
-            root.keys[0]=new KRRN(key, RRN);
+            root.keys[0]=new KRRN(key);
             //root.setN(root.getN()+1);//aumenta el numero de llaves
             root.n+=1;//aumenta el numero de llaves
         }
@@ -238,22 +238,22 @@ public class Btree implements Serializable {
                 i++;
             }
             //from new root we insert in a aproppiate child
-            insertNonFull(s.childs[i], key,RRN);
+            insertNonFull(s.childs[i], key);
         }
         else{
             //insert in root node
-            insertNonFull(root,key,RRN);
+            insertNonFull(root,key);
         }
     }
     
-    public void insertNonFull(Bnode x,int key,int RRN){
+    public void insertNonFull(Bnode x,int key){
         int i=x.n-1;//array last element
         if (x.leaf==true) {
             while (i>=0&&key<x.keys[i].key) { //se corren los elementos mayores a la derecha
                 x.keys[i+1]=x.keys[i];
                 i--;
             }
-            x.keys[i+1]=new KRRN(key, RRN);//se inserta el elemento en la posicion correcta
+            x.keys[i+1]=new KRRN(key);//se inserta el elemento en la posicion correcta
             x.n=x.n+1;//aumenta el numero de llaves de x
         }else{//not leaf
             
@@ -275,7 +275,7 @@ public class Btree implements Serializable {
                 }
             }
             
-            insertNonFull(x.childs[i], key,RRN);
+            insertNonFull(x.childs[i], key);
             
         }
         
@@ -330,8 +330,7 @@ public class Btree implements Serializable {
         } 
         
         if (i<x.n && x.keys[i].key == k){
-            return x.keys[i].RRN; 
-            
+            return x.keys[i].key; 
         } 
         // no esta en el arbol
         if (x.leaf == true) {

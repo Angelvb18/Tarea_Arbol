@@ -58,6 +58,7 @@ public class Tarea_Arbol {
                 case '3':
                     break;
                 case '4':
+                    System.out.println("Ingrese numero que va ");
                     break;
                 case '5':{
                     System.out.println("Ingrese la Llave que desea Buscar:");

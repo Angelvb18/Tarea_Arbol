@@ -5,16 +5,13 @@ import java.io.Serializable;
 
 public class KRRN implements Serializable {
     protected int key;
-    protected int RRN;
 
     public KRRN() {
         key=-1;
-        RRN=-1;
     }
 
-    public KRRN(int key, int RRN) {
+    public KRRN(int key) {
         this.key = key;
-        this.RRN = RRN;
     }
 }
 
