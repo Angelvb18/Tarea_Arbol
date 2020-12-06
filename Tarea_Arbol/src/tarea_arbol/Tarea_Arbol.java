@@ -10,11 +10,11 @@ public class Tarea_Arbol {
         Main();
     }
     public static void Main(){
-        Btree arbol = null;
+        Btree arbol = new Btree(5);
         
         char opcion_MenuPrincipal = '0' ;
         while(opcion_MenuPrincipal != '6'){
-            System.out.print("1.Cragar Arbol\n"
+            System.out.print("1.Cargar Arbol\n"
                     + "2.Guardar Arbol\n"
                     + "3.Imprimir Árbol\n"
                     + "4.Insertar Elemento\n"
@@ -26,7 +26,9 @@ public class Tarea_Arbol {
                 case '1':
                     
                     break;
-                case '2':
+                case '2':{
+                    
+                }
                     break;
                 case '3':
                     break;
