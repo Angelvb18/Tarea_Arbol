@@ -13,7 +13,7 @@ public class Tarea_Arbol {
         Btree arbol = null;
         
         char opcion_MenuPrincipal = '0' ;
-        while(opcion_MenuPrincipal != 6){
+        while(opcion_MenuPrincipal != '6'){
             System.out.print("1.Cragar Arbol\n"
                     + "2.Guardar Arbol\n"
                     + "3.Imprimir Árbol\n"
@@ -36,7 +36,7 @@ public class Tarea_Arbol {
                     System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
                     int buscado = arbol.search(arbol.root, numBuscar);
-                    System.out.println("Enocntrado en: " + buscado);
+                    System.out.println("Encontrado en: " + buscado);
                 }
                     break;
                 case '6':
