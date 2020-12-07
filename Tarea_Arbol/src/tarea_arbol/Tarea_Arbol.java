@@ -99,6 +99,7 @@ public class Tarea_Arbol {
                     break;
                 case '6':
                     System.out.println("Adios");
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Ingreso una opcion no valida");
