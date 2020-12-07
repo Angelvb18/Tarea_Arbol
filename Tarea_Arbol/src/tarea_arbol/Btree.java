@@ -20,21 +20,26 @@ public class Btree implements Serializable {
             System.out.println(nivel + "");
             String nivelChild = nivel + "\t";
             
-            for (int i = node.n - 1; i >= 0; i--) {
+            for (int i = 0; i < node.n; i++) {
                 if (!node.leaf) {
+                    System.out.print("{");
                     PrintTree(node.childs[i], nivelChild);
+                    System.out.print("}");
                 }
                 
                 if (node.keys[i].key > 0) {
-                    System.out.println(nivelChild + node.keys[i].key);
+                    System.out.print(nivelChild + node.keys[i].key);
                 }
             }
             
             if (!node.leaf) {
+                System.out.print("{");
                 PrintTree(node.childs[node.n], nivelChild);
+                System.out.print("}");
             }
             
         }
+        System.out.println("");
     }
     
     public void delete_key(Bnode x,int k){
