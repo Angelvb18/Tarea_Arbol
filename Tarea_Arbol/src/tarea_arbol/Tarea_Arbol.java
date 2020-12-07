@@ -55,6 +55,7 @@ public class Tarea_Arbol {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        cargado = true;
                     }
                         
                 }
@@ -82,7 +83,9 @@ public class Tarea_Arbol {
                 case '3':
                     break;
                 case '4':
-                    System.out.println("Ingrese numero que va ");
+                    System.out.print("Ingrese numero que va insertar:");
+                    int numero_insert = lea.nextInt();
+                    arbol.insert(numero_insert);
                     break;
                 case '5':{
                     System.out.println("Ingrese la Llave que desea Buscar:");
