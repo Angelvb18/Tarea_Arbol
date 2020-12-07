@@ -80,7 +80,10 @@ public class Tarea_Arbol {
                     }
                 }
                     break;
-                case '3':
+                case '3':{
+                    System.out.println("Impresion del Arbol: ");
+                    arbol.PrintTree(arbol.root, "");
+                }
                     break;
                 case '4':
                     System.out.print("Ingrese numero que va insertar:");

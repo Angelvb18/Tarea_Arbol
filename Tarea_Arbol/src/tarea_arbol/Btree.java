@@ -13,6 +13,30 @@ public class Btree implements Serializable {
         
     }
     
+    public void PrintTree(Bnode node, String nivel){
+        if(node == null){
+            System.out.println(nivel + "El Árbol está Vacío");
+        }else{
+            System.out.println(nivel + "");
+            String nivelChild = nivel + "\t";
+            
+            for (int i = node.n - 1; i >= 0; i--) {
+                if (!node.leaf) {
+                    PrintTree(node.childs[i], nivelChild);
+                }
+                
+                if (node.keys[i].key > 0) {
+                    System.out.println(nivelChild + node.keys[i].key);
+                }
+            }
+            
+            if (!node.leaf) {
+                PrintTree(node.childs[node.n], nivelChild);
+            }
+            
+        }
+    }
+    
     public void delete_key(Bnode x,int k){
         //la funcion comienza con la busqueda de la posicion de la llave
         int pos=encontrar_llave(x, k);
