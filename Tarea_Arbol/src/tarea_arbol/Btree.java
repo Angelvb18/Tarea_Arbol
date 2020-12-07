@@ -22,9 +22,7 @@ public class Btree implements Serializable {
             
             for (int i = 0; i < node.n; i++) {
                 if (!node.leaf) {
-                    System.out.print("{");
                     PrintTree(node.childs[i], nivelChild);
-                    System.out.print("}");
                 }
                 
                 if (node.keys[i].key > 0) {
@@ -33,59 +31,12 @@ public class Btree implements Serializable {
             }
             
             if (!node.leaf) {
-                System.out.print("{");
                 PrintTree(node.childs[node.n], nivelChild);
-                System.out.print("}");
             }
             
         }
         System.out.println("");
     }
-    
-    public void delete_key(Bnode x,int k){
-        //la funcion comienza con la busqueda de la posicion de la llave
-        int pos=encontrar_llave(x, k);
-        
-        if(pos<x.n&&x.keys[pos].key==k){//la llave esta en bnode x
-            if(x.leaf){
-                remover_de_hoja(x,pos);
-            }else{
-                remover_de_interno(x,pos);
-            }
-        }else{ //la llave no esta en x
-            
-            if(x.leaf){// nodo hoja sin encontrar llave = la llave no existe
-                System.out.println("llave inexistente");
-                return;
-            }
-            
-            //el nodo es interno y no hemos encontrado la llave, hay que bajar al sub-arbol
-            
-            //down to last child of x
-            
-            boolean test=false;
-            
-            //last child 
-            if(pos==x.n){
-                test=true;
-            }
-            
-            //less than accepted number of keys
-            if(x.childs[pos].n<x.t){
-                llenar(x.childs[pos],pos);
-            }
-            
-            
-            if(test&&pos>x.n){
-                delete_key(x.childs[pos-1], k);
-            }else{
-                delete_key(x.childs[pos], k);
-            }
-            
-        }
-        
-    }
-    
     public void llenar(Bnode x,int pos){
         if (pos!=0&&x.childs[pos-1].n>=x.t) {
             prestar_anterior(x,pos);
@@ -178,25 +129,6 @@ public class Btree implements Serializable {
 	child.n += 1; 
 	sib.n -= 1;
     }
-    
-    public void remover_de_interno(Bnode x, int pos){
-        int k=x.keys[pos].key;//key
-        
-        if(x.childs[pos].n>=t){
-            int pre=getPre(x,pos);
-            x.keys[pos].key=pre;
-            delete_key(x.childs[pos], pre);
-            
-        }else if(x.childs[pos+1].n>=t) {
-            int suc=getSu(x, pos);
-            x.keys[pos].key=suc;
-            delete_key(x.childs[pos+1], suc);
-        }else{
-            merge(x,pos);
-            delete_key(x.childs[pos], k);
-        }
-    }
-    
     public void merge(Bnode x,int pos){
         Bnode child=x.childs[pos];
         Bnode sib=x.childs[pos+1];
@@ -227,16 +159,6 @@ public class Btree implements Serializable {
         
         sib=null;
     }
-    
-    public void remover_de_hoja(Bnode x,int pos){
-        for (int i = pos+1; i < x.n; i++) {
-            x.keys[i-1]=x.keys[i];
-        }
-        
-        //one less key
-        x.n=x.n-1;
-    }
-    
     public int encontrar_llave(Bnode x,int k){//retorna la posicion de la llave o la posicion de un valor mas grande o la posicion final si no se cumplen los 2 primeros casos
         int pos=0;
         while(pos<x.n&&x.keys[pos].key<k){
