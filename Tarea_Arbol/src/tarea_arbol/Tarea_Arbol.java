@@ -17,7 +17,7 @@ public class Tarea_Arbol {
         Main();
     }
     public static void Main(){
-        Btree arbol = new Btree(5);
+        Btree arbol = new Btree(3);
         File archivo = new File("arbol.pb");
         boolean cargado = false;
         

@@ -26,7 +26,7 @@ public class Btree implements Serializable {
                 }
                 
                 if (node.keys[i].key > 0) {
-                    System.out.println(nivelChild + node.keys[i].key);
+                    System.out.print(nivelChild + node.keys[i].key);
                 }
             }
             
@@ -35,6 +35,7 @@ public class Btree implements Serializable {
             }
             
         }
+        System.out.println("");
     }
     
     public void delete_key(Bnode x,int k){

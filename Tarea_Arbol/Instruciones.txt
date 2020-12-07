@@ -1,0 +1,17 @@
+Angel Vásquez 
+Alessandro Reyes 
+José Canaca
+Sergio Suazo
+
+1.Cargar árbol
+   Esta opción carga un árbol guardado en el archivo arbol.pb
+2.Guardar Arbol 
+   Esta opción guarda el árbol que esta en memoria 
+3.Imprimir Arbol
+   Esta opción despliega la representación de Arbol
+4.Insertar Elemento
+   Esta opción inserta un elemento al arbol al usuario se le solicita el numero a agregar 
+5.Buscar Elemento
+   En esta opción se le solicita al usuario el elemento y muestra si lo encontró
+6.Salir
+    Es para salir del sistema mostrando Adios
