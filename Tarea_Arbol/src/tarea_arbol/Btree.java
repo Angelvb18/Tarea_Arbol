@@ -20,9 +20,11 @@ public class Btree implements Serializable {
             System.out.println(nivel + "");
             String nivelChild = nivel + "\t";
             
-            for (int i = node.n - 1; i >= 0; i--) {
+            for (int i = 0; i < node.n; i++) {
                 if (!node.leaf) {
+                    System.out.print("{");
                     PrintTree(node.childs[i], nivelChild);
+                    System.out.print("}");
                 }
                 
                 if (node.keys[i].key > 0) {
@@ -31,11 +33,14 @@ public class Btree implements Serializable {
             }
             
             if (!node.leaf) {
+                System.out.print("{");
                 PrintTree(node.childs[node.n], nivelChild);
+                System.out.print("}");
             }
             
         }
         System.out.println("");
+<<<<<<< HEAD
     }
     
     public void delete_key(Bnode x,int k){
@@ -240,6 +245,8 @@ public class Btree implements Serializable {
         }
         return pos;
         
+=======
+>>>>>>> 0a0c9d1fe8909e53677249897cf8cbf36f2285e4
     }
     
     public void insert(int key){
@@ -368,6 +375,7 @@ public class Btree implements Serializable {
     }
     
 }
+
 
 
 

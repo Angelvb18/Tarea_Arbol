@@ -94,7 +94,16 @@ public class Tarea_Arbol {
                     System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
                     int buscado = arbol.search(arbol.root, numBuscar);
-                    System.out.println("Encontrado en: " + buscado);
+                    if(buscado == -1)
+                    {
+                        System.out.println("No se encontro");
+                        
+                    }
+                    else
+                    {
+                        System.out.println("Se encontro");
+                    }
+                    
                 }
                     break;
                 case '6':
