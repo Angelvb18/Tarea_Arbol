@@ -1,9 +1,13 @@
 
 package tarea_arbol;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import java.util.Scanner;
 
 public class Tarea_Arbol {
@@ -31,6 +35,26 @@ public class Tarea_Arbol {
                 case '1':{
                     if(cargado){
                         System.out.println("Ya hay un Árbol en Ejecución");
+                    }else{
+                        try {
+                            
+                            Btree temp;
+                            if (archivo.exists()) {
+                                FileInputStream entrada = new FileInputStream(archivo);
+                                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                                try {
+                                    temp = (Btree) objeto.readObject();
+                                        arbol = temp;
+                                    
+                                } catch (EOFException e) {
+                                    //encontro el final del archivo
+                                }
+                                objeto.close();
+                                entrada.close();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                         
                 }
