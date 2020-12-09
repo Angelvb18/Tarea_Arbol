@@ -17,7 +17,7 @@ public class Tarea_Arbol {
         Main();
     }
     public static void Main(){
-        Btree arbol = new Btree(3);
+        Btree arbol = new Btree();
         File archivo = new File("arbol.pb");
         boolean cargado = false;
         
@@ -82,7 +82,7 @@ public class Tarea_Arbol {
                     break;
                 case '3':{
                     System.out.println("Impresion del Arbol: ");
-                    arbol.PrintTree(arbol.root, "");
+                    arbol.PrintLevels();
                 }
                     break;
                 case '4':
@@ -93,8 +93,8 @@ public class Tarea_Arbol {
                 case '5':{
                     System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
-                    int buscado = arbol.search(arbol.root, numBuscar);
-                    if(buscado == -1)
+                    Bnode buscado = arbol.search(numBuscar);
+                    if(buscado.getKey(2)== -1)
                     {
                         System.out.println("No se encontro");
                         
@@ -117,3 +117,6 @@ public class Tarea_Arbol {
         }
     }
 }
+
+
+
