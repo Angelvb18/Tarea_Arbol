@@ -37,7 +37,7 @@ public class Btree implements Serializable {
                         if (root.hijos[i] != null) {
                             for (int j = 0; j < root.hijos[i].n; j++) {
                                 if (root.hijos[i].key[j] != -1) {
-                                    System.out.print(root.hijos[i].key[j]);
+                                    System.out.print(root.hijos[i].key[j]+"-");
                                 }
                             }
                             System.out.print("|");
@@ -52,7 +52,7 @@ public class Btree implements Serializable {
                                     for (int k = 0; k < root.hijos[i].hijos[j].n + 1; k++) {
                                         //System.out.println("j:"+j+" K:"+k);
                                         if (root.hijos[i].hijos[j].key[k] != 0) {
-                                            System.out.print(root.hijos[i].hijos[j].key[k]);
+                                            System.out.print(root.hijos[i].hijos[j].key[k]+"-");
 
                                         }
 
@@ -155,11 +155,20 @@ public class Btree implements Serializable {
             // Free the old root 
             //delete tmp;
             tmp = null;
+            System.out.println("entro aca");
         }
-        return;
+        System.out.println("salio de ahi3");
     }
     
 }
+
+
+
+
+
+
+
+
 
 
 

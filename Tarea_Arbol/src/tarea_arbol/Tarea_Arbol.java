@@ -28,7 +28,8 @@ public class Tarea_Arbol {
                     + "3.Imprimir Árbol\n"
                     + "4.Insertar Elemento\n"
                     + "5.Buscar Elemento\n"
-                    + "6.Salir\n"
+                    + "6.Eliminar Elemento\n"
+                    + "7.Salir\n"
                     + "Ingrese una opcion:");
             opcion_MenuPrincipal = lea.next().charAt(0);
             switch (opcion_MenuPrincipal) {
@@ -85,30 +86,67 @@ public class Tarea_Arbol {
                     arbol.PrintLevels();
                 }
                     break;
-                case '4':
+                case '4':{
                     System.out.print("Ingrese numero que va insertar:");
                     int numero_insert = lea.nextInt();
-                    arbol.insert(numero_insert);
+                    
+                    Bnode buscado = arbol.search(numero_insert);
+                    if(buscado == null)
+                    {
+                        arbol.insert(numero_insert);
+                        System.out.println("Se inserto correctamente.");
+                    }
+                    else
+                    {
+                        System.out.println("Ese numero ya habia sido ingresado y no se puede repetir "+buscado.getKey(0));
+                    }
+                    
+                }
                     break;
                 case '5':{
                     System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
                     Bnode buscado = arbol.search(numBuscar);
-                    if(buscado.getKey(2)== -1)
+                    if(buscado == null)
                     {
                         System.out.println("No se encontro");
                         
                     }
                     else
                     {
-                        System.out.println("Se encontro");
+                        System.out.println("Se encontro: "+buscado.getKey(0));
                     }
                     
                 }
+                
                     break;
-                case '6':
+                case '6':{
+                    
+                    System.out.print("Ingrese numero que va eliminar:");
+                    int numero_remove = lea.nextInt();
+                    
+                    Bnode buscado = arbol.search(numero_remove);
+                     
+                    if(buscado == null)
+                    {
+                        System.out.println("Ese numero no esta ingresado en el arbol.");
+                        
+                    }
+                    else
+                    {
+                        
+                        arbol.remove(numero_remove);
+                        System.out.println("Se elimino correctamente.");
+                        
+                    }
+                    
+                }
+                
+                    break;
+                case '7':{
                     System.out.println("Adios");
                     System.exit(0);
+                }
                     break;
                 default:
                     System.out.println("Ingreso una opcion no valida");
@@ -117,6 +155,19 @@ public class Tarea_Arbol {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
