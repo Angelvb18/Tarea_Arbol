@@ -65,10 +65,10 @@ public class Btree implements Serializable {
                         }
 
                     }
-
+                    
                 }
             }
-       
+            System.out.println("\n");
             
             }catch(Exception x){
                 
@@ -155,9 +155,9 @@ public class Btree implements Serializable {
             // Free the old root 
             //delete tmp;
             tmp = null;
-            System.out.println("entro aca");
+            //System.out.println("entro aca");
         }
-        System.out.println("salio de ahi3");
+        //System.out.println("salio de ahi3");
     }
     
 }

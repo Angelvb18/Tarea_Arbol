@@ -22,7 +22,7 @@ public class Tarea_Arbol {
         boolean cargado = false;
         
         char opcion_MenuPrincipal = '0' ;
-        while(opcion_MenuPrincipal != '6'){
+        while(opcion_MenuPrincipal != '7'){
             System.out.print("1.Cargar Arbol\n"
                     + "2.Guardar Arbol\n"
                     + "3.Imprimir Árbol\n"
@@ -58,10 +58,9 @@ public class Tarea_Arbol {
                         }
                         cargado = true;
                     }
-                        
+                       break; 
                 }
-                    
-                    break;
+
                 case '2':{
                     FileOutputStream fw = null;
                     ObjectOutputStream bw = null;
@@ -79,13 +78,14 @@ public class Tarea_Arbol {
                         } catch (Exception e) {
                         }
                     }
-                }
                     break;
+                }
+                    
                 case '3':{
                     System.out.println("Impresion del Arbol: ");
                     arbol.PrintLevels();
-                }
                     break;
+                }   
                 case '4':{
                     System.out.print("Ingrese numero que va insertar:");
                     int numero_insert = lea.nextInt();
@@ -100,9 +100,9 @@ public class Tarea_Arbol {
                     {
                         System.out.println("Ese numero ya habia sido ingresado y no se puede repetir "+buscado.getKey(0));
                     }
-                    
-                }
                     break;
+                }
+                    
                 case '5':{
                     System.out.println("Ingrese la Llave que desea Buscar:");
                     int numBuscar = lea.nextInt();
@@ -116,10 +116,9 @@ public class Tarea_Arbol {
                     {
                         System.out.println("Se encontro: "+buscado.getKey(0));
                     }
-                    
-                }
-                
                     break;
+                }
+
                 case '6':{
                     
                     System.out.print("Ingrese numero que va eliminar:");
@@ -134,20 +133,16 @@ public class Tarea_Arbol {
                     }
                     else
                     {
-                        
                         arbol.remove(numero_remove);
                         System.out.println("Se elimino correctamente.");
-                        
                     }
-                    
-                }
-                
                     break;
+                }
                 case '7':{
                     System.out.println("Adios");
                     System.exit(0);
-                }
                     break;
+                }
                 default:
                     System.out.println("Ingreso una opcion no valida");
                     break;
